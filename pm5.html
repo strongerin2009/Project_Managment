@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>COVID Tracker</title>
+	<meta name="description" content="Hi i'm Josephihne, an AI replica built by ini for a class project.">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+	<main>
+		<section id="loginsec">
+			<div id="imag">
+				<img src="https://upload.wikimedia.org/wikipedia/commons/1/17/North_Carolina_Central_Wordmark.png" width="250px" height="100px">
+			</div>
+			<fieldset style="font-size:1.5rem">
+				<legend>Login</legend>
+				<label>User Name: <input type="text" name="login" id="loginid"></label>
+				<label>Password: <input type="password" name="p_w" id="p_w"></label>
+				<br>
+				<button onclick="loginbut()">Sign In</button>
+			</fieldset>
+		</section>
+		<h1>Thank you for Protecting the Nest.</h1>
+		<h2 id="showcase" style="font-size:1.4rem"></h2>
+	</main>
+
+</body>
+</html>
+<script type="text/javascript">
+	const database = {
+					'tcrawford': ['12345', 'Tiffany', 'Crawford', 820222999, 'TCrawford@eagles.nccu.edu'],
+					'tjohnson': ['24680', 'Madavia','Johnson', 820, 'Mjohn215@eagles.nccu.edu'],
+					'sbrown': ['98765', 'Sean', 'Brown', 820, 'sbrow260@eagles.nccu.edu'],
+					'cmccullough': ['54321', 'Christopher', 'McCullough', 820, 'cmccull5@eagles.nccu.edu']
+					};
+	
+	function loginbut(){
+		document.getElementById('showcase').style.display = 'inline-block'
+		let logg = (document.getElementById('loginid').value).toLowerCase();
+		let p_w = document.getElementById('p_w').value;
+		if (database[logg][0] == p_w){
+		document.getElementById('loginsec').style.display = 'none';
+		
+		var nameinput = logg;
+		var output = 
+		'Table ID = SLIS98765'+
+		'<br>Date = '+ new Date() +
+		'<br>FirstName = '+database[nameinput][1]+
+		'<br>LastName = '+database[nameinput][2]+
+		'<br>Banner = '+database[nameinput][3]+
+		'<br>Email = '+database[nameinput][4]+
+		"<button id='homebtn' onclick='takeback()'>Home</Button>";
+		document.getElementById('showcase').innerHTML = output;
+		}
+	}
+	function takeback(){
+		document.getElementById('loginsec').style.display = 'inline-block';
+		document.getElementById('showcase').style.display = 'none'
+		
+	}
+
+</script>
+<style type="text/css">
+	@media (max-width: 470px) {
+	body{
+		background-image: linear-gradient(180deg, #78151A, #9C3D42, #C98184);
+		color:#fff;
+		height: 100vh;
+		margin:0;
+		padding:0;
+		font-family: courier;
+		font-size:0.5rem;
+	}
+	main{
+		margin: 0% 8%;
+		width: 80%;
+	}
+	#imag{
+		position: absolute;
+		top:15px;
+		left: 50px;
+	}
+	#loginsec{
+		position: absolute;
+		top:0;
+		left:0;
+		width: 100%;
+		height: 100vh;
+		background-color: #780B10;
+		padding: 100px 0px;
+	}
+	#loginsec fieldset{
+		margin: 20% 10%;
+		width: 70%;
+	}
+	#loginsec fieldset button{
+		margin: 2% 20%;
+	}
+	#homebtn {
+  background-color: #9C3D42;
+  color: #fff;
+  border: 2px outset #fff; /* Green */
+  margin: 2% 37.5%;
+  width: 25%;
+}
+}
+</style>
